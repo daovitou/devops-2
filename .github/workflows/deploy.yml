@@ -19,6 +19,6 @@ jobs:
             whoami
             pwd
             ls
-            cd apps/construction/devops-2
+            cd apps/construction/devops-2/
             git pull
             pm2 restart devops-test
