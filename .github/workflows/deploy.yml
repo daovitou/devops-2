@@ -1,4 +1,4 @@
-name: Test API
+name: Test Build
 on:
   push:
     branches: main
@@ -6,13 +6,21 @@ on:
     branches: main
 jobs:
   test:
-    runs-on: ubuntu-24.04
+    name: BuildAPIs
+    runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh command using password
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: localhost
+          host: 213.199.45.4
           username: root
-          password: admin
-          port: 2233
-          script: whoami
+          key: ${{ secrets.SSH_KEY }}
+          # password: admin
+          port: 22
+          script: . ~/.nvm/nvm.sh
+            whoami
+            pwd
+            ls
+            cd apps/construction/devops-2
+            git pull
+            pm2 restart devops-test
