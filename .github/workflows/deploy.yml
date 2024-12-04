@@ -14,11 +14,12 @@ jobs:
           host: 213.199.45.4
           username: root
           key: ${{ secrets.SSH_KEY }}
-          script: 
-            . ~/.nvm/nvm.sh 
+          script:
+            pwd
+            . ~/.nvm/nvm.sh
             whoami
             pwd
             ls
             cd apps/construction/devops-2/
             git pull
-            pm2 restart devops-test
+            pm2 restart devops
