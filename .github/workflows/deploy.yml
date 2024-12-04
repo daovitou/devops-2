@@ -16,8 +16,8 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           # password: admin
-          port: 22
-          script: . ~/.nvm/nvm.sh
+          script: 
+            . ~/.nvm/nvm.sh 
             whoami
             pwd
             ls
