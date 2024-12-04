@@ -6,8 +6,7 @@ on:
     branches: main
 jobs:
   test:
-    name: BuildAPIs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: executing remote ssh command using password
         uses: appleboy/ssh-action@v1.2.0
@@ -15,7 +14,6 @@ jobs:
           host: 213.199.45.4
           username: root
           key: ${{ secrets.SSH_KEY }}
-          # password: admin
           script: 
             . ~/.nvm/nvm.sh 
             whoami
