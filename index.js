@@ -8,6 +8,6 @@ app.get("/testing",(req,res,next)=>{
     }
 })
 
-app.listen(8081, () => {
+app.listen(8000, () => {
     console.log("Running on 8081")
 })
