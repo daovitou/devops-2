@@ -31,27 +31,27 @@ resource "aws_instance" "server_1" {
     user_data = <<-EOF
                 #!/bin/bash
                 apt update
-                # apt install git -y
-                # apt install curl -y
+                apt install git -y
+                apt install curl -y
                 apt install python3 -y
 
                 # Install NVM
-                # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-                # . ~/.nvm/nvm.sh
+                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+                . ~/.nvm/nvm.sh
 
                 # Install Node.js 18
-                # nvm install 18
+                nvm install 18
 
                 # Install PM2
-                # npm install pm2 -g
+                npm install pm2 -g
 
                 # Clone Node.js repository
-                # git clone https://github.com/daovitou/devops-2.git /root/devops-2
+                git clone https://github.com/daovitou/devops-2.git /root/devops-2
 
                 # Navigate to the repository and start the app with PM2
-                # cd /root/devops-2
-                # npm install
-                # pm2 start index.js --name node-app -- -p 8000
+                cd /root/devops-2
+                npm install
+                pm2 start index.js --name node-app -- -p 8000
               EOF
   user_data_replace_on_change = true
 }

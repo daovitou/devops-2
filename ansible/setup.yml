@@ -1,0 +1,20 @@
+- name: Setup EC2 instance
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: Update package list
+      apt:
+        update_cache: yes
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+    - name: Install require package
+      apt:
+        name:
+          - wget
+          - curl
+          - git
+          - net-tools
+          - neofetch
+        state: present
